@@ -1,0 +1,88 @@
+﻿@model GesCollege.Models.Enseignant
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="jumbotron">
+    <h1>
+        <span class="glyphicon glyphicon-blackboard" aria-hidden="true"> Details Enseignant</span>
+    </h1>
+    <p class="lead"></p>
+</div>
+
+<div>
+    <h4>Enseignant</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Course.LibCours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course.LibCours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Departement.NomDep)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Departement.NomDep)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prenom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prenom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatePriseFonction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatePriseFonction)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Indice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Indice)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    <a class="btn btn-secondary" href="@Url.Action("FicheEns", "Rapport", new {id=Model.Id})">Fiche </a>|
+    @Html.ActionLink("Back to List", "Index")
+</p>

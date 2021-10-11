@@ -1,0 +1,39 @@
+﻿@model GesCollege.Models.Course
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="jumbotron">
+    <h1>
+        <span class="glyphicon glyphicon-list-alt" aria-hidden="true"> Details Matiere</span>
+    </h1>
+    <p class="lead"></p>
+</div>
+<div>
+    <h4>Course</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Salle.NomSalle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Salle.NomSalle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LibCours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LibCours)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    <a class="btn btn-secondary" href="@Url.Action("EtatCourse", "Rapport", new {id=Model.Id})">Liste des responsables </a>|
+    @Html.ActionLink("Back to List", "Index")
+</p>

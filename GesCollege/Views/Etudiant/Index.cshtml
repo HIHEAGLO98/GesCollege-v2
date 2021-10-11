@@ -1,0 +1,95 @@
+﻿@model PagedList.IPagedList<GesCollege.Models.Etudiant>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="jumbotron">
+    <h1>
+        <span class="glyphicon glyphicon-user" aria-hidden="true"> Etudiant</span>
+    </h1>
+    <p class="lead"></p>
+</div>
+
+<div class="row first"> 
+    
+    <div class="col-lg-8">
+        <div class="col-lg-3">
+            <a href="@Url.Action("Create")">
+                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true">Create New</span>
+            </a>
+        </div>
+        <div class="col-lg-3">
+            <a href="@Url.Action("ExportStudents")">
+                <span class="glyphicon glyphicon-save-file" aria-hidden="true">
+                    Report PDF
+                </span>
+            </a>
+        </div>
+    </div>
+     @using (Html.BeginForm("Index", "Etudiant", FormMethod.Get))
+     {
+     <div class="col-lg-4">
+         Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+         <input type="submit" value="Search" />
+     </div>
+     }
+ </div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink(" Nom", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            Prenom
+        </th>
+        <th>
+            Téléphone
+        </th>
+        <th>
+            Mail
+        </th>
+        <th>
+            @Html.ActionLink("DateEntree", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prenom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateEntree)
+            </td>
+            <td>
+                <a href="Etudiant/Edit/@Html.DisplayFor(modelItem => item.Id)">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                </a> |
+                <a href="Etudiant/Details/@Html.DisplayFor(modelItem => item.Id)">
+                    <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                </a> |
+                <a href="Etudiant/Delete/@Html.DisplayFor(modelItem => item.Id)">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>
+<br/>
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder=ViewBag.CurrentSort, currentFilter= ViewBag.CurrentFilter }))

@@ -1,0 +1,47 @@
+﻿@model GesCollege.Models.Note
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="jumbotron">
+    <h1>
+        <span class="glyphicon glyphicon-check" aria-hidden="true"> Details Note</span>
+    </h1>
+    <p class="lead"></p>
+</div>
+
+<div>
+    <h4>Note</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Courses.LibCours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Courses.LibCours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Etudiants.Nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Etudiants.Nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoteControle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoteControle)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

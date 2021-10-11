@@ -1,0 +1,64 @@
+﻿@model GesCollege.Models.Etudiant
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="jumbotron">
+    <h1><span class="glyphicon glyphicon-user" aria-hidden="true"> Details Etudiant</span>
+    </h1>
+    <p class="lead"></p>
+</div>
+
+<div>
+    <h4>Etudiant</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prenom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prenom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateEntree)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateEntree)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    <a class="btn btn-secondary" href="@Url.Action("EtatReleve", "Rapport", new {id=Model.Id})">Relevé </a>|
+    <a class="btn btn-secondary" href="@Url.Action("FicheEtu", "Rapport", new {id=Model.Id})">Fiche </a>|
+    @Html.ActionLink("Back to List", "Index")
+</p>

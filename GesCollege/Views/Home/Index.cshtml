@@ -1,0 +1,33 @@
+﻿@model IEnumerable<GesCollege.Models.College>
+        @{
+        ViewBag.Title = "Home Page";
+        }
+
+        <div class="jumbotron">
+            <h1>IAI - CAMEROUN</h1>
+            <p class="lead"></p>
+            <p><a href="https://www.iaicameroun.com" class="btn btn-primary btn-lg">Site Web &raquo;</a></p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-md-8">
+                <h2 style="text-align: center;">Colleges</h2>
+
+                <table class="table home-table">
+                    @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nom)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.SiteWeb)
+                                </td>
+                            </tr>
+                        }
+                    </table>
+            </div>
+        </div>

@@ -1,0 +1,109 @@
+﻿@model IEnumerable<GesCollege.Models.Enseignant>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+ <div class="jumbotron">
+     <h1>
+             <span class="glyphicon glyphicon-blackboard" aria-hidden="true"> Enseignant</span>
+     </h1>
+      <p class="lead"></p>
+ </div>
+
+ <div class="row first">
+     <div class="col-lg-8">
+         <div class="col-lg-3">
+             <a href="@Url.Action("Create")">
+                 <span class="glyphicon glyphicon-plus-sign" aria-hidden="true">Create New</span>
+             </a>         
+         </div>
+         <div class="col-lg-3">
+             <a href="@Url.Action("ExportProfessor")">
+                 <span class="glyphicon glyphicon-save-file" aria-hidden="true">
+                     Report PDF
+                 </span>
+             </a>
+         </div>
+     </div>
+     @using (Html.BeginForm("Index", "Enseignant", FormMethod.Get))
+     {
+     <div class="col-lg-4">
+         Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+         <input type="submit" value="Search" />
+     </div>
+     }
+ </div>
+ 
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink(" Nom", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prenom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mail)
+        </th>
+        <th>
+            Date de Prise de Fonction
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Indice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Course.LibCours)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Departement.NomDep)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prenom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DatePriseFonction)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Indice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Course.LibCours)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Departement.NomDep)
+        </td>
+        <td>
+            <a href="Enseignant/Edit/@Html.DisplayFor(modelItem => item.Id)">
+                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+            </a> | 
+            <a href="Enseignant/Details/@Html.DisplayFor(modelItem => item.Id)">
+                <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+            </a> | 
+            <a href="Enseignant/Delete/@Html.DisplayFor(modelItem => item.Id)">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+            </a>
+        </td>
+    </tr>
+    }
+
+</table>
+<br/>

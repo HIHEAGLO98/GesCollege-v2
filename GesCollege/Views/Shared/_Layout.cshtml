@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Gestion College</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-brand">
+                <img src="~/Images/favicon2.jpg" alt="Alternate Text" width="50px" height="35px" />
+            </div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*@Html.ActionLink("KolejManager", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href=" @Url.Action("Index", "Home")">
+                            <span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href=" @Url.Action("Index", "College")">
+                            <span class="glyphicon glyphicon-education" aria-hidden="true"></span> Colleges
+                        </a>
+                    </li>
+                    <li>
+                        <a href=" @Url.Action("Index", "Departement")">
+                            <span class="glyphicon glyphicon-object-align-vertical" aria-hidden="true"></span> Departements
+                        </a>
+                    </li>
+                    <li>
+                        <a href=" @Url.Action("Index", "Course")">
+                            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Matieres
+                        </a>
+                    </li>
+                    <li>
+                        <a href=" @Url.Action("Index", "Enseignant")">
+                            <span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span> Enseignants
+                        </a>
+                    </li>
+                    <li>
+                        <a href=" @Url.Action("Index", "Etudiant")">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Etudiants
+                        </a>
+                    </li>
+                    <li>
+                        <a href=" @Url.Action("Index", "Note")">
+                            <span class="glyphicon glyphicon-check" aria-hidden="true"></span> Notes
+                        </a>
+                    </li>
+                    <li>
+                        <a href=" @Url.Action("Index", "Rapport")">
+                            <span class="glyphicon glyphicon-book" aria-hidden="true"></span> Rapport
+                        </a>
+                    </li>
+                    @*
+        <li>
+            <a href=" @Url.Action("About", "Home")">
+                <span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span> About
+            </a>
+        </li>
+        <li>
+            <a href=" @Url.Action("Contact", "Home")">
+                <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> Contact
+            </a>
+        </li>*@
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+    </div>
+    <div class="navbar foot">
+        <div class="container">
+            <div class="row">
+                <p>&copy; @DateTime.Now.Year - Gestion College</p>
+            </div>
+            <div class="row by">
+                Made By Ghust, Lamiye, Vanho
+            </div>
+        </div>        
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
